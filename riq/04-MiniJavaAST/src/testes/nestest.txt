@@ -1,0 +1,9 @@
+class NestedCalls {
+    public static void main (String [] testy) {
+        System.out.println(this.test1(
+            Test.test2(),
+            new Test().test3( Test.test2() ),
+            Test.test2()
+            ));
+    }
+}

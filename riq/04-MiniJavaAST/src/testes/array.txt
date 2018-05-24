@@ -1,0 +1,20 @@
+class Main {
+    public static void main (String [] testy) {
+        {
+            System.out.println(new Arrays().coolMethod(5));
+        }
+    }
+}
+
+class Arrays {
+    public int coolMethod (int size) {
+        int index;
+        int[] arr;
+        index = 1;
+        arr = new int[size];
+        while(index < arr.length) {
+            arr[index] = 1 + arr[index-1] * 2 + 1;
+        }
+        return arr[arr.length - 1];
+    }
+}

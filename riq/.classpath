@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry excluding="testes/" kind="src" path="04-MiniJavaAST/src"/>
+	<classpathentry kind="src" path="04-MiniJavaAST/src/testes"/>
+	<classpathentry kind="src" path="04-MiniJavaAST/target/generated-sources/antlr4"/>
+	<classpathentry kind="output" path="04-MiniJavaAST/bin"/>
+</classpath>
