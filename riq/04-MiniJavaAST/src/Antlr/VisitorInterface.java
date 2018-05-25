@@ -45,8 +45,7 @@ public class VisitorInterface implements AntlrVisitor<Object> {
 
 	@Override
 	public Object visitIdentifier(IdentifierContext ctx) {
-		Identifier idf = (Identifier) ctx.IDENTIFIER().accept(this);
-		return idf;
+		return (Identifier) ctx.IDENTIFIER().accept(this);
 	}
 
 	@Override
@@ -105,15 +104,14 @@ public class VisitorInterface implements AntlrVisitor<Object> {
 		if (numChild == 1) {
 
 			String aux = ctx.getChild(0).getText();
-			if (aux == "true") {
+			if (aux.equals("true")) {
 				return new True();
-			} else if (aux == "false") {
+			} else if (aux.equals("false")) {
 				return new False();
-			} else if (aux == "this") {
+			} else if (aux.equals("this")) {
 				return new This();
 			} else if (aux.matches("\\d+")) {
-				Integer i = (Integer) ctx.integer().accept(this);
-				return new IntegerLiteral(i);
+				return (IntegerLiteral) ctx.integer().accept(this);
 			} else {
 				IdentifierExp idf = (IdentifierExp) ctx.identifier().accept(this);
 				return idf;
@@ -126,15 +124,15 @@ public class VisitorInterface implements AntlrVisitor<Object> {
 			Exp exp2 = (Exp) ctx.expression(1).accept(this);
 			String op = ctx.getChild(1).getText();
 
-			if (op == "&&") {
+			if (op.equals("&&")) {
 				return new And(exp1, exp2);
-			} else if (op == "<") {
+			} else if (op.equals("<")) {
 				return new LessThan(exp1, exp2);
-			} else if (op == "+") {
+			} else if (op.equals("+")) {
 				return new Plus(exp1, exp2);
-			} else if (op == "-") {
+			} else if (op.equals("-")) {
 				return new Minus(exp1, exp2);
-			} else if (op == "*") {
+			} else if (op.equals("*")) {
 				return new Times(exp1, exp2);
 			} else { // if (op == "[") {
 				return new ArrayLookup(exp1, exp2);
@@ -145,11 +143,11 @@ public class VisitorInterface implements AntlrVisitor<Object> {
 			String aux = ctx.getChild(0).getText();
 			Exp exp = (Exp) ctx.expression(0).accept(this);
 
-			if (aux == "!") {
+			if (aux.equals("!")) {
 				return new Not(exp);
-			} else if (aux == "(") {
+			} else if (aux.equals("(")) {
 				return exp;
-			} else if (aux == ".") {
+			} else if (aux.equals(".")) {
 				return new ArrayLength(exp);
 			} else {
 				return new NewArray(exp);
@@ -176,7 +174,6 @@ public class VisitorInterface implements AntlrVisitor<Object> {
 
 	@Override
 	public Object visitMainClass(MainClassContext ctx) {
-
 		Identifier idf = (Identifier) ctx.identifier(0).accept(this);
 		Identifier idf2 = (Identifier) ctx.identifier(1).accept(this);
 		Statement s = (Statement) ctx.statement().accept(this);
@@ -193,14 +190,14 @@ public class VisitorInterface implements AntlrVisitor<Object> {
 		if (numExp == 1) {
 			Exp exp = (Exp) ctx.expression(0).accept(this);
 
-			if (aux == "if") {
+			if (aux.equals("if")) {
 				Statement s1 = (Statement) ctx.statement(0).accept(this);
 				Statement s2 = (Statement) ctx.statement(1).accept(this);
 				return new If(exp, s1, s2);
-			} else if (aux == "while") {
+			} else if (aux.equals("while")) {
 				Statement s1 = (Statement) ctx.statement(0).accept(this);
 				return new While(exp, s1);
-			} else if (aux == "System.out.println") {
+			} else if (aux.equals("System.out.println")) {
 				return new Print(exp);
 			} else {
 				Identifier idf = (Identifier) ctx.identifier().accept(this);
@@ -224,8 +221,8 @@ public class VisitorInterface implements AntlrVisitor<Object> {
 
 	@Override
 	public Object visitInteger(IntegerContext ctx) {
-		Integer i = (Integer) ctx.INTEGER().accept(this);
-		return new IntegerLiteral(i);
+	
+		return (Integer) ctx.INTEGER().accept(this);
 	}
 
 	@Override
@@ -234,9 +231,9 @@ public class VisitorInterface implements AntlrVisitor<Object> {
 		String aux = ctx.getChild(0).getText();
 		if (numChild == 3) {
 			return new IntArrayType();
-		} else if (aux == "int") {
+		} else if (aux.equals("int")) {
 			return new IntegerType();
-		} else if (aux == "boolean") {
+		} else if (aux.equals("boolean")) {
 			return new BooleanType();
 		} else {
 			Identifier idf = (Identifier) ctx.identifier().accept(this);

@@ -23,15 +23,15 @@ public class AntlrParser extends Parser {
 		T__26=9, T__25=10, T__24=11, T__23=12, T__22=13, T__21=14, T__20=15, T__19=16, 
 		T__18=17, T__17=18, T__16=19, T__15=20, T__14=21, T__13=22, T__12=23, 
 		T__11=24, T__10=25, T__9=26, T__8=27, T__7=28, T__6=29, T__5=30, T__4=31, 
-		T__3=32, T__2=33, T__1=34, T__0=35, IDENTIFIER=36, LETTER=37, ALPHANUMERIC=38, 
-		DIGIT=39, INTEGER=40, DIGITO=41, WS=42, BREAKLINE=43, COMMENT=44;
+		T__3=32, T__2=33, T__1=34, T__0=35, IDENTIFIER=36, INTEGER=37, WS=38, 
+		BREAKLINE=39, COMMENT=40;
 	public static final String[] tokenNames = {
 		"<INVALID>", "'main'", "'length'", "'new'", "'true'", "'return'", "'class'", 
 		"'while'", "';'", "'void'", "'{'", "'&&'", "'='", "'extends'", "'}'", 
 		"'if'", "'int'", "'('", "'*'", "'this'", "','", "'false'", "'.'", "'boolean'", 
 		"'System.out.println'", "'['", "'<'", "'String'", "']'", "'public'", "'!'", 
-		"'static'", "'else'", "')'", "'+'", "'-'", "IDENTIFIER", "LETTER", "ALPHANUMERIC", 
-		"DIGIT", "INTEGER", "DIGITO", "WS", "BREAKLINE", "COMMENT"
+		"'static'", "'else'", "')'", "'+'", "'-'", "IDENTIFIER", "INTEGER", "WS", 
+		"BREAKLINE", "COMMENT"
 	};
 	public static final int
 		RULE_goal = 0, RULE_mainClass = 1, RULE_classDeclaration = 2, RULE_varDeclaration = 3, 
@@ -888,7 +888,7 @@ public class AntlrParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3.\u00df\4\2\t\2\4"+
+		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3*\u00df\4\2\t\2\4"+
 		"\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t"+
 		"\13\3\2\3\2\7\2\31\n\2\f\2\16\2\34\13\2\3\2\3\2\3\3\3\3\3\3\3\3\3\3\3"+
 		"\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\4\3\4\3\4\3\4\5\4"+
@@ -956,8 +956,8 @@ public class AntlrParser extends Parser {
 		"\u00d4\7#\2\2\u00d4\u00d6\3\2\2\2\u00d5\u00ba\3\2\2\2\u00d5\u00bd\3\2"+
 		"\2\2\u00d5\u00c2\3\2\2\2\u00d5\u00c5\3\2\2\2\u00d6\u00d9\3\2\2\2\u00d7"+
 		"\u00d5\3\2\2\2\u00d7\u00d8\3\2\2\2\u00d8\21\3\2\2\2\u00d9\u00d7\3\2\2"+
-		"\2\u00da\u00db\7&\2\2\u00db\23\3\2\2\2\u00dc\u00dd\7*\2\2\u00dd\25\3\2"+
-		"\2\2\22\32\65;AVY`ftz\u009f\u00b8\u00ce\u00d1\u00d5\u00d7";
+		"\2\u00da\u00db\7&\2\2\u00db\23\3\2\2\2\u00dc\u00dd\7\'\2\2\u00dd\25\3"+
+		"\2\2\2\22\32\65;AVY`ftz\u009f\u00b8\u00ce\u00d1\u00d5\u00d7";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

@@ -1,20 +1,19 @@
 grammar Antlr;
 
 @header{
-	package br.ufpe.cin.if688.minijava.main;
+	package Antlr;
 }
-
 
 
 goal: mainClass (classDeclaration)* EOF;
 
-mainClass : 'class'identifier '{' 'public' 'static' 'void' 'main''(' 'String' '[' ']' identifier ')' '{' statement '}' '}';
+mainClass : 'class' identifier '{' 'public' 'static' 'void' 'main''(' 'String' '[' ']' identifier ')' '{' statement '}' '}';
 
 classDeclaration: 'class' identifier ('extends' identifier )? '{' (varDeclaration)* (methodDeclaration)* '}';
 
 varDeclaration: type identifier ';';
 
-methodDeclaration: 'public' type identifier '(' (type identifier (',' type identifier)*)? ')' '{' (varDeclaration)* (statement)* 'return' expression ';''}';
+methodDeclaration: 'public' type identifier '(' (type identifier (',' type identifier)* )? ')' '{' (varDeclaration)* (statement)* 'return' expression ';''}';
 type: 'int' '['']'
 	| 'boolean'
 	| 'int'
@@ -45,14 +44,9 @@ expression: expression ('&&' | '<' | '+' | '-' | '*') expression
 identifier: IDENTIFIER;
 
 integer: INTEGER;
-IDENTIFIER: ((LETTER) | '_')((ALPHANUMERIC) | '_')*;
-LETTER: [a-zA-z];
-ALPHANUMERIC: (LETTER)| (DIGIT);
-DIGIT: [0-9];
-INTEGER: '0'
-		 |((DIGITO)(DIGIT)*);
-DIGITO: [1-9];
-WS: [ \n\t\r\f] -> skip;
+IDENTIFIER: [a-z_A-Z] [a-z_A-Z0-9]*;
+INTEGER: [0]|[1-9] [0-9]*;
+WS: [ \n\t\r] -> skip;
 BREAKLINE: ([/n] | [/r/n]) -> skip;
 COMMENT: '/*' .*? '*/' -> skip;
 
