@@ -14,5 +14,5 @@ class B extends A {
 }
 
 class C { 
-  A obj;
+  int obj;
 }

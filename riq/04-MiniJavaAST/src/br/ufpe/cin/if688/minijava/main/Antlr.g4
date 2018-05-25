@@ -47,8 +47,8 @@ integer: INTEGER;
 IDENTIFIER: [a-z_A-Z] [a-z_A-Z0-9]*;
 INTEGER: [0]|[1-9] [0-9]*;
 WS: [ \n\t\r] -> skip;
-BREAKLINE: ([/n] | [/r/n]) -> skip;
 COMMENT: '/*' .*? '*/' -> skip;
+COMMENT2: '//'.*? ([/n]|[/r/n]) -> skip;
 
 
 

@@ -72,7 +72,7 @@ public class Main {
 		cdl.addElement(C);
 		
 		//test program here
-		InputStream stream = new FileInputStream("src/testes/nestest.txt");
+		InputStream stream = new FileInputStream("src/testes/arithmetics.txt");
 		ANTLRInputStream input = new ANTLRInputStream(stream);
 		AntlrLexer lexer = new Antlr.AntlrLexer(input);
 		CommonTokenStream token = new CommonTokenStream(lexer);

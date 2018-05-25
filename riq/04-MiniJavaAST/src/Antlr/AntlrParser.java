@@ -24,14 +24,14 @@ public class AntlrParser extends Parser {
 		T__18=17, T__17=18, T__16=19, T__15=20, T__14=21, T__13=22, T__12=23, 
 		T__11=24, T__10=25, T__9=26, T__8=27, T__7=28, T__6=29, T__5=30, T__4=31, 
 		T__3=32, T__2=33, T__1=34, T__0=35, IDENTIFIER=36, INTEGER=37, WS=38, 
-		BREAKLINE=39, COMMENT=40;
+		COMMENT=39, COMMENT2=40;
 	public static final String[] tokenNames = {
 		"<INVALID>", "'main'", "'length'", "'new'", "'true'", "'return'", "'class'", 
 		"'while'", "';'", "'void'", "'{'", "'&&'", "'='", "'extends'", "'}'", 
 		"'if'", "'int'", "'('", "'*'", "'this'", "','", "'false'", "'.'", "'boolean'", 
 		"'System.out.println'", "'['", "'<'", "'String'", "']'", "'public'", "'!'", 
 		"'static'", "'else'", "')'", "'+'", "'-'", "IDENTIFIER", "INTEGER", "WS", 
-		"BREAKLINE", "COMMENT"
+		"COMMENT", "COMMENT2"
 	};
 	public static final int
 		RULE_goal = 0, RULE_mainClass = 1, RULE_classDeclaration = 2, RULE_varDeclaration = 3, 

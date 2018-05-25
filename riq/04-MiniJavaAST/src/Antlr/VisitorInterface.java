@@ -45,7 +45,8 @@ public class VisitorInterface implements AntlrVisitor<Object> {
 
 	@Override
 	public Object visitIdentifier(IdentifierContext ctx) {
-		return (Identifier) ctx.IDENTIFIER().accept(this);
+		
+		return new Identifier(ctx.getText());
 	}
 
 	@Override
@@ -113,8 +114,8 @@ public class VisitorInterface implements AntlrVisitor<Object> {
 			} else if (aux.matches("\\d+")) {
 				return (IntegerLiteral) ctx.integer().accept(this);
 			} else {
-				IdentifierExp idf = (IdentifierExp) ctx.identifier().accept(this);
-				return idf;
+				String s = ctx.getText();
+				return new IdentifierExp(s);
 				// return new IdentifierExp(aux); //https://pastebin.com/PjDkSQ5f
 			}
 
@@ -222,7 +223,7 @@ public class VisitorInterface implements AntlrVisitor<Object> {
 
 	@Override
 	public Object visitInteger(IntegerContext ctx) {
-		return (IntegerLiteral) ctx.INTEGER().accept(this);
+		return new IntegerLiteral(Integer.parseInt(ctx.getText()));
 	}
 
 	@Override
@@ -244,8 +245,9 @@ public class VisitorInterface implements AntlrVisitor<Object> {
 	@Override
 	public Object visitVarDeclaration(VarDeclarationContext ctx) {
 
-		Type tipo = (Type) ctx.type().accept(this);
+		
 		Identifier idf = (Identifier) ctx.identifier().accept(this);
+		Type tipo = (Type) ctx.type().accept(this);
 
 		return new VarDecl(tipo, idf);
 	}
