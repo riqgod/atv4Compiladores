@@ -185,11 +185,12 @@ public class VisitorInterface implements AntlrVisitor<Object> {
 	public Object visitStatement(StatementContext ctx) {
 
 		int numExp = ctx.expression().size();
-		String aux = ctx.getChild(0).getText();
+		
 
 		if (numExp == 1) {
 			Exp exp = (Exp) ctx.expression(0).accept(this);
-
+			String aux = ctx.getChild(0).getText();
+			
 			if (aux.equals("if")) {
 				Statement s1 = (Statement) ctx.statement(0).accept(this);
 				Statement s2 = (Statement) ctx.statement(1).accept(this);
@@ -221,8 +222,7 @@ public class VisitorInterface implements AntlrVisitor<Object> {
 
 	@Override
 	public Object visitInteger(IntegerContext ctx) {
-	
-		return (Integer) ctx.INTEGER().accept(this);
+		return (IntegerLiteral) ctx.INTEGER().accept(this);
 	}
 
 	@Override
@@ -261,8 +261,7 @@ public class VisitorInterface implements AntlrVisitor<Object> {
 			vdl.addElement((VarDecl) itv.next().accept(this));
 		}
 		MethodDeclList mdl = new MethodDeclList();
-		Iterator<MethodDeclarationContext> itm = (Iterator<MethodDeclarationContext>) ctx.methodDeclaration()
-				.iterator();
+		Iterator<MethodDeclarationContext> itm = (Iterator<MethodDeclarationContext>) ctx.methodDeclaration().iterator();
 		while (itm.hasNext()) {
 			mdl.addElement((MethodDecl) itm.next().accept(this));
 		}
